@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magazine</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header">
+          <div class="logo">
+            <img
+              src="img/bff68b9ccc47edded11d1218944ca283-ladies-bag-3-by-vexels.png"
+              alt="logo"
+            />
+          </div>
+          <nav class="menu">
+            <ul class="menu__container">
+              <li class="menu__link"><a href="#">Женские</a></li>
+              <li class="menu__link"><a href="#">Мужские</a></li>
+              <li class="menu__link"><a href="#">Спортивные</a></li>
+              <li class="menu__link"><a href="#">Дорожные</a></li>
+              <li class="menu__link"><a href="#">Детcкие</a></li>
+            </ul>
+          </nav>
+          <button class="btn recycle__btn">
+            Корзина
+          </button>
+        </div>
+        <form class="form">
+          <label for="search">
+            <input
+              class="form__search"
+              type="search"
+              id="search"
+              name="search"
+              name="serach"
+              placeholder="Поиск сумки"
+            />
+          </label>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <ul class="catalog">
+          <li class="card">
+            <img
+              src="img/Croc_Embossed_Leather_Elegant_Bag_White_Detail_2_200107_grande.jpg"
+              alt="test"
+            />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+          <li class="card">
+            <img src="img/10341519753246.jpg" alt="test" />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+          <li class="card">
+            <img src="img/10341519753246.jpg" alt="test" />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+          <li class="card">
+            <img src="img/10341519753246.jpg" alt="test" />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+          <li class="card">
+            <img src="img/10341519753246.jpg" alt="test" />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+          <li class="card">
+            <img src="img/10341519753246.jpg" alt="test" />
+            <div class="card__description">
+              <h3 class="card__title">Dior от Chanel</h3>
+              <div class="card__price">2350 сом</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div class="modal modal__item hide">
+      <div class="modal__block">
+        <h2 class="modal__header">Купить</h2>
+        <div class="modal__content">
+          <div>
+            <img
+              class="modal__image modal__image-item"
+              src="img/10341519753246.jpg"
+              alt="test"
+            />
+          </div>
+          <div class="modal__description">
+            <h3 class="modal__header-item">Тестовый Телефон</h3>
+            <p>Состояние: <span class="modal__status-item">отличное</span></p>
+            <p>
+              Описание:
+              <span class="modal__description-item"
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet,
+                aut deleniti dolores ex explicabo fugit hic?</span
+              >
+            </p>
+            <p>Цена: <span class="modal__cost-item">4000 ₽</span></p>
+            <button class="btn">Купить</button>
+          </div>
+        </div>
+        <button class="modal__close">&#10008;</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
