@@ -1,9 +1,11 @@
 let catatlog = document.querySelector(".catalog");
-let card = document.querySelector(".card");
+
 let modal = document.querySelector(".modal");
 let modalBlock = document.querySelector(".modal__block");
-
+let menuItems = document.querySelectorAll(".menu__link")
 let allCards = [];
+
+
 
 catatlog.addEventListener("click", function (evt) {
   let target = evt.target;
@@ -19,21 +21,14 @@ modal.addEventListener("click", function (evt) {
   }
 });
 
-// function cardItem(id, img, text) {
-//   let card = document.createElement("li");
-//   cardItem.classList.add("card");
-//   cardItem.innerHTML = `<img src="img/10341519753246.jpg" alt="test" />
-// <div class="card__description">
-//   <h3 class="card__title">Dior от Chanel</h3>
-//   <div class="card__price">2350 сом</div>`;
-//   return card;
-// }
-// catatlog.appendChild(cardItem);
+
+
+
 
 async function getData(url) {
   let data = await fetch(url);
   if (!data.ok) {
-    console.log(data.status);
+    console.log(data.status + "сто то не так");
   }
   return data.json();
 }
@@ -42,13 +37,62 @@ getData("products.json").then(function (data) {
   console.log(data);
 });
 
-// function cardlist(id, img, text) {
-//   let cardItem = document.createElement("li");
-//   cardItem.classList.add("card");
-//   cardItem.innerHTML = `<img src="img/10341519753246.jpg" alt="test" />
-// <div class="card__description">
-//   <h3 class="card__title">Dior от Chanel</h3>
-//   <div class="card__price">2350 сом</div>`;
-//   return cardItem;
-// }
-// catatlog.appendChild(cardList());
+function renderCard(products, filtredProducts) {
+  let card = '';
+  products.forEach(item => {
+    card += `<li class="card">
+    <img
+      src=${item.image}
+      alt="test"
+    />
+    <div class="card__description">
+      <h3 class="card__title">${item.text}</h3>
+      <div class="card__price">${item.price} сом</div>
+    </div>
+  </li>`;
+
+
+    return card;
+  });
+  catatlog.innerHTML = card;
+
+}
+
+function getCards() {
+  let cardItem = [...document.querySelectorAll(".card")];
+
+  return cardItem
+}
+
+function filter(products) {
+
+  menuItems.forEach(menu => {
+    menu.addEventListener('click', function (evt) {
+      let category = []
+      category = products.filter(product => {
+
+        return menu.dataset.category === product.category
+
+      });
+      renderCard(category)
+    });
+  });
+}
+
+
+function saveData(products) {
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+
+
+
+getData("products.json").then(function (data) {
+
+  renderCard(data);
+  saveData(data);
+  filter(data);
+
+}).then(() => {
+  getCards();
+});
