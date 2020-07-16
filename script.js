@@ -19,16 +19,16 @@ modal.addEventListener("click", function (evt) {
   }
 });
 
-// function card(id, img, text) {
-//   let cardItem = document.createElement("li");
+// function cardItem(id, img, text) {
+//   let card = document.createElement("li");
 //   cardItem.classList.add("card");
 //   cardItem.innerHTML = `<img src="img/10341519753246.jpg" alt="test" />
 // <div class="card__description">
 //   <h3 class="card__title">Dior от Chanel</h3>
 //   <div class="card__price">2350 сом</div>`;
-//   return cardItem;
+//   return card;
 // }
-// catatlog.appendChild(card);
+// catatlog.appendChild(cardItem);
 
 async function getData(url) {
   let data = await fetch(url);
@@ -41,3 +41,14 @@ async function getData(url) {
 getData("products.json").then(function (data) {
   console.log(data);
 });
+
+// function cardlist(id, img, text) {
+//   let cardItem = document.createElement("li");
+//   cardItem.classList.add("card");
+//   cardItem.innerHTML = `<img src="img/10341519753246.jpg" alt="test" />
+// <div class="card__description">
+//   <h3 class="card__title">Dior от Chanel</h3>
+//   <div class="card__price">2350 сом</div>`;
+//   return cardItem;
+// }
+// catatlog.appendChild(cardList());

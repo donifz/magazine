@@ -1,11 +1,71 @@
-[
-  {
-    "id": 1
+[{
+    "id": 1,
+    "image": "img/10341519753246.jpg",
+    "category": "woman",
+    "text": "Dior",
+    "price": "2500"
   },
   {
-    "id": 2
+    "id": 2,
+    "image": "img/Croc_Embossed_Leather_Elegant_Bag_White_Detail_2_200107_grande.jpg",
+    "category": "woman",
+    "text": "Hermes",
+    "price": "1800"
   },
   {
-    "id": 3
+    "id": 3,
+    "image": "img/man1.jpg",
+    "category": "man",
+    "text": "Armani",
+    "price": "3400"
+  },
+  {
+    "id": 4,
+    "image": "img/man2.jpg",
+    "category": "man",
+    "text": "D&G",
+    "price": "2800"
+  },
+  {
+    "id": 5,
+    "image": "img/sports1.jpg",
+    "category": "sport",
+    "text": "Adidas",
+    "price": "2350"
+  }, {
+    "id": 6,
+    "image": "img/sports2.jpg",
+    "category": "sport",
+    "text": "Nike",
+    "price": "1000"
+  },
+  {
+    "id": 7,
+    "image": "img/way.jpg",
+    "category": "way",
+    "text": "Longstar",
+    "price": "3500"
+  },
+  {
+    "id": 8,
+    "image": "img/way2.jpg",
+    "category": "way",
+    "text": "BY THE WAY",
+    "price": "3200"
+  },
+  {
+    "id": 9,
+    "image": "img/child.jpg",
+    "category": "child",
+    "text": "Micky Bags",
+    "price": "1200"
+  },
+  {
+    "id": 10,
+    "image": "img/child2.jpg",
+    "category": "child",
+    "text": "Teddy bags to school",
+    "price": "950"
   }
+
 ]
