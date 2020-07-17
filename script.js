@@ -1,8 +1,11 @@
 let catatlog = document.querySelector(".catalog");
-
+let recycleBtn = document.querySelector(".recycle__btn");
 let modal = document.querySelector(".modal");
 let modalBlock = document.querySelector(".modal__block");
 let menuItems = document.querySelectorAll(".menu__link");
+let recycle = document.querySelector(".recycle");
+let recycleBlock = document.querySelector(".recycle__block");
+let recycleClose = document.querySelector(".recycle__close");
 let allCards = [];
 
 modal.addEventListener("click", function (evt) {
@@ -10,6 +13,15 @@ modal.addEventListener("click", function (evt) {
   if (target.closest(".modal__close") || !target.closest(".modal__block")) {
     modal.classList.add("hide");
   }
+});
+
+recycleBtn.addEventListener("click", function () {
+  recycle.classList.toggle("recycle__hide");
+  // recycleBlock.classList.add();
+});
+
+recycleClose.addEventListener("click", function () {
+  recycle.classList.toggle("recycle__hide");
 });
 
 async function getData(url) {

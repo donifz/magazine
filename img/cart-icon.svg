@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="640" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <title>Cart Icon</title>
+ <g>
+  <title>Layer 1</title>
+  <line id="svg_14" y2="62.222222" x2="131.555556" y1="35.555556" x1="46.222222" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="50" stroke="#3598db" fill="none"/>
+  <line id="svg_15" y2="448" x2="215.111111" y1="62.222222" x1="131.555556" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="50" stroke="#3598db" fill="none"/>
+  <line id="svg_16" y2="446.666667" x2="544" y1="446.666667" x1="215.111111" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="50" stroke="#3598db" fill="none"/>
+  <line stroke="#3598db" id="svg_17" y2="193.777778" x2="167.096419" y1="193.777778" x1="612.441444" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="18" fill="none"/>
+  <line id="svg_18" y2="367.347222" x2="565.489397" y1="367.347222" x1="200.888889" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="18" stroke="#3598db" fill="none"/>
+  <line stroke="#3598db" id="svg_19" y2="360.888895" x2="574.222218" y1="186.666667" x1="606.222224" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="18" fill="none"/>
+  <rect stroke="#3598db" id="svg_22" height="3.599122" width="3.470582" y="184.796891" x="611.678344" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse stroke="#3598db" ry="25.333335" rx="25.333335" id="svg_24" cy="35.999995" cx="48.000007" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse id="svg_26" stroke="#3598db" ry="25.333335" rx="25.333335" cy="62.417968" cx="131.050781" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse id="svg_27" stroke="#3598db" ry="25.333335" rx="25.333335" cy="446.459529" cx="215.111091" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse stroke="#3598db" id="svg_28" ry="25.09603" rx="25.333335" cy="446.76269" cx="542.423835" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse stroke="#3598db" id="svg_29" ry="18.120813" rx="18.120813" cy="358.33749" cx="565.423173" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse stroke="#3598db" id="svg_30" ry="64.291655" rx="64.291655" cy="566.35648" cx="262.069472" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <ellipse id="svg_31" stroke="#3598db" ry="64.291655" rx="64.291655" cy="566.35648" cx="493.069472" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#3598db"/>
+  <path id="svg_36" d="m181.333333,195.555556c0,0 419.555556,-1.777778 419.555556,-1.777778c0,0 -30.222222,172.444444 -30.222222,172.444444c0,0 -359.111111,-3.555556 -359.111111,-3.555556c0,0 -30.222222,-167.111111 -30.222222,-167.111111z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#3598db" fill="#3598db"/>
+ </g>
+</svg>
