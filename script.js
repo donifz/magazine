@@ -71,7 +71,7 @@ function createModal(product) {
   let img = product.querySelector("img");
   let text = product.querySelector(".card__title");
   let price = product.querySelector(".card__price");
-  let data = JSON.parse(localStorage.getItem("cart"));
+  /*let data = JSON.parse(localStorage.getItem("cart"));
   let dis = "";
   let gray = "";
   data.forEach((item) => {
@@ -80,7 +80,7 @@ function createModal(product) {
       gray = 'style="background-color:gray"';
     }
   });
-  console.log(dis);
+  console.log(dis);*/
   modal.innerHTML = `<div class="modal__block">
     <h2 class="modal__header">Купить</h2>
     <div class="modal__content">
