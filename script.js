@@ -133,8 +133,9 @@ function cartStorage(cart) {
 }
 
 function createCart(id) {
+let product = "";
   id.forEach((item) => {
-    let product = "";
+    
     product += `<div class="recycle__product">
                   <img class="product__img" src=${item.image} />
                   <div class="product__description">
