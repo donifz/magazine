@@ -115,7 +115,7 @@ function cartBtn(modal) {
     let cartId = data.find((id) => {
       return modalBtn.dataset.id == id.id;
     });
-    recycleContent.innerHTML += createCart(cart);
+    recycleContent.innerHTML += createCart(cartId);
     modal.classList.add("hide");
 
     // console.log(cartId);
