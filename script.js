@@ -96,7 +96,7 @@ function createModal(product) {
             aut deleniti dolores ex explicabo fugit hic?</span>
         </p>
         <p>Цена: <span class="modal__cost-item">${price.textContent}</span></p>
-        <button ${dis}  ${gray}  class="btn buy__btn" data-id=${cardTitle.dataset.id}>В корзину</button>
+        <button class="btn buy__btn" data-id=${cardTitle.dataset.id}>В корзину</button>
       </div>
     </div>
     <button class="modal__close">&#10008;</button>
