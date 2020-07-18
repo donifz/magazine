@@ -245,17 +245,24 @@ body {
   overflow-y: auto;
 }
 .recycle__product {
-  width: 280px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .product__img {
   width: 100px;
 }
 .product__description {
+  height: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  text-align: end;
+  font-size: 15px;
+}
+.product__price {
+  font-size: 13px;
 }
 .recycle__close {
   position: absolute;
@@ -274,10 +281,13 @@ body {
   transform: translateX(0%);
   transition: 0.3s;
 }
-.recycle__show {
-  transform: translateX(100%);
-  transition: 0.3s;
+
+.product__del {
+  cursor: pointer;
+  color: gray;
+  font-size: 12px;
 }
+
 .hide {
   display: none;
 }
