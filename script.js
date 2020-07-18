@@ -17,7 +17,6 @@ modal.addEventListener("click", function (evt) {
 
 recycleBtn.addEventListener("click", function () {
   recycle.classList.toggle("recycle__hide");
-  // recycleBlock.classList.add();
 });
 
 recycleClose.addEventListener("click", function () {
@@ -39,13 +38,13 @@ getData("products.json").then(function (data) {
 function renderCard(products) {
   let card = "";
   products.forEach((item) => {
-    card += `<li class="card">
+    card += `<li class="card" >
     <img
       src=${item.image}
       alt="test"
     />
     <div class="card__description">
-      <h3 class="card__title">${item.text}</h3>
+      <h3 data-id=${item.id} class="card__title">${item.text}</h3>
       <div class="card__price">${item.price} сом</div>
     </div>
   </li>`;
@@ -65,6 +64,7 @@ function getCards() {
   });
 }
 function createModal(product) {
+  let cardTitle = product.querySelector(".card__title");
   let img = product.querySelector("img");
   let text = product.querySelector(".card__title");
   let price = product.querySelector(".card__price");
@@ -75,7 +75,7 @@ function createModal(product) {
         <img class="modal__image modal__image-item" src=${img.src} alt="test" />
       </div>
       <div class="modal__description">
-        <h3 class="modal__header-item">${text.textContent}</h3>
+        <h3 class="modal__header-item" >${text.textContent}</h3>
         
         <p>
           Описание:
@@ -83,11 +83,37 @@ function createModal(product) {
             aut deleniti dolores ex explicabo fugit hic?</span>
         </p>
         <p>Цена: <span class="modal__cost-item">${price.textContent}</span></p>
-        <button class="btn">Купить</button>
+        <button class="btn buy__btn" data-id=${cardTitle.dataset.id}>Купить</button>
       </div>
     </div>
     <button class="modal__close">&#10008;</button>
   </div>`;
+  cartBtn(modal);
+}
+
+function cartBtn(modal) {
+  let modalBtn = modal.querySelector(".buy__btn");
+  let recycleContent = document.querySelector(".recycle__content");
+  let data = JSON.parse(localStorage.getItem("products"));
+  modalBtn.addEventListener("click", function () {
+    let cartId = data.find((id) => {
+      return modalBtn.dataset.id == id.id;
+    });
+    recycleContent.innerHTML += createCart(cartId);
+    modal.classList.add("hide");
+  });
+}
+
+function createCart(id) {
+  let product = "";
+  product += `<div class="recycle__product">
+                  <img class="product__img" src=${id.image} />
+                  <div class="product__description">
+                      <h3 class="product__text">${id.text}</h3>
+                      <p class="product__price">${id.price} Сом</p>
+                  </div>
+              </div>`;
+  return product;
 }
 
 function filter(products) {

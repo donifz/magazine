@@ -239,9 +239,10 @@ body {
   background-color: #fff;
   padding: 30px;
   width: 320px;
-  height: 100vh;
+  height: 100%;
   box-shadow: -1px 2px 5px 0 rgba(174, 174, 174, 0.75);
   position: relative;
+  overflow-y: auto;
 }
 .recycle__product {
   width: 280px;
