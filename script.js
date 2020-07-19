@@ -164,6 +164,8 @@ function createCart(arr) {
   recycleContent.innerHTML += product;
 }
 
+// меню
+
 function filter(products) {
   menuItems.forEach((menu) => {
     menu.addEventListener("click", function (evt) {
@@ -182,6 +184,8 @@ function filter(products) {
     });
   });
 }
+
+// поиск
 
 function searchBag(products) {
   let searchInput = document.querySelector("#search");
