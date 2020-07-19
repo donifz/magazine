@@ -17,6 +17,7 @@ modal.addEventListener("click", function (evt) {
 
 recycleBtn.addEventListener("click", function () {
   recycle.classList.toggle("recycle__hide");
+  recycle.classList.remove("hide");
 });
 
 recycleClose.addEventListener("click", function (evt) {
@@ -71,7 +72,7 @@ function createModal(product) {
   let img = product.querySelector("img");
   let text = product.querySelector(".card__title");
   let price = product.querySelector(".card__price");
-  /*let data = JSON.parse(localStorage.getItem("cart"));
+  let data = JSON.parse(localStorage.getItem("cart")) || [];
   let dis = "";
   let gray = "";
   data.forEach((item) => {
@@ -80,7 +81,7 @@ function createModal(product) {
       gray = 'style="background-color:gray"';
     }
   });
-  console.log(dis);*/
+
   modal.innerHTML = `<div class="modal__block">
     <h2 class="modal__header">Купить</h2>
     <div class="modal__content">
@@ -96,58 +97,51 @@ function createModal(product) {
             aut deleniti dolores ex explicabo fugit hic?</span>
         </p>
         <p>Цена: <span class="modal__cost-item">${price.textContent}</span></p>
-        <button class="btn buy__btn" data-id=${cardTitle.dataset.id}>В корзину</button>
+        <button ${dis} ${gray} class="btn buy__btn" data-id=${cardTitle.dataset.id}>В корзину</button>
       </div>
     </div>
-    <button class="modal__close">&#10008;</button>
+    <button  class="modal__close">&#10008;</button>
   </div>`;
   cartBtn(modal);
-
   console.log(data);
 }
 
 function cartBtn(modal) {
   let modalBtn = modal.querySelector(".buy__btn");
-  let recycleContent = document.querySelector(".recycle__content");
   let data = JSON.parse(localStorage.getItem("products"));
   let cart = JSON.parse(localStorage.getItem("cart"));
   modalBtn.addEventListener("click", function () {
     let cartId = data.find((id) => {
       return modalBtn.dataset.id == id.id;
     });
-    recycleContent.innerHTML += createCart(cartId);
     modal.classList.add("hide");
-
-    // console.log(cartId);
     cartStorage(cartId);
   });
 }
 
 function cartStorage(cart) {
-  // let saveCart = localStorage.setItem("cart", JSON.stringify(cart));
-  // let load = JSON.parse(localStorage.getItem("cart"));
-
   allCards.push(cart);
+  console.log(allCards);
   localStorage.setItem("cart", JSON.stringify(allCards));
   let load = JSON.parse(localStorage.getItem("cart"));
 }
+let load = JSON.parse(localStorage.getItem("cart")) || [];
+function createCart(arr) {
+  let recycleContent = document.querySelector(".recycle__content");
+  let product = "";
 
-function createCart(id) {
-let product = "";
-  id.forEach((item) => {
-    
+  arr.forEach((item) => {
     product += `<div class="recycle__product">
-                  <img class="product__img" src=${item.image} />
-                  <div class="product__description">
-                      <h3 class="product__text">${item.text}</h3>
-                      <p class="product__price">${item.price} Сом</p>
-                      <p class="product__del">Удалить</p>
-                  </div>
-              </div>
-              <hr/>`;
+    <img class="product__img" src=${item.image} />
+    <div class="product__description">
+        <h3 class="product__text">${item.text}</h3>
+        <p class="product__price">${item.price} Сом</p>
+        <p class="product__del">Удалить</p>
+    </div>
+</div>
+<hr/>`;
   });
-
-  return product;
+  recycleContent.innerHTML += product;
 }
 
 function filter(products) {
@@ -190,6 +184,7 @@ getData("products.json")
     saveData(data);
     filter(data);
     searchBag(data);
+    createCart(load);
   })
   .then(() => {
     getCards();
