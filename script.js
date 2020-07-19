@@ -6,8 +6,11 @@ let menuItems = document.querySelectorAll(".menu__link");
 let recycle = document.querySelector(".recycle");
 let recycleBlock = document.querySelector(".recycle__block");
 let recycleClose = document.querySelector(".recycle__close");
-let allData = [];
+let recycleContent = document.querySelector(".recycle__content");
+let cartTotalPrice = document.querySelector(".total__price");
+
 let allCards = [];
+let load = [];
 
 // close modal
 
@@ -21,7 +24,7 @@ modal.addEventListener("click", function (evt) {
 // close cart
 recycleBtn.addEventListener("click", function () {
   recycle.classList.toggle("recycle__hide");
-  recycle.classList.remove("hide");
+  // recycle.classList.remove("hide");
 });
 
 recycle.addEventListener("click", function (evt) {
@@ -46,7 +49,7 @@ getData("products.json").then(function (data) {
 
 // сохраняем все данные в local
 function saveData(products) {
-  localStorage.setItem("products", JSON.stringify(products));
+  return localStorage.setItem("products", JSON.stringify(products));
 }
 
 // render all product cards
@@ -72,7 +75,7 @@ function renderCard(products) {
 // событие на каждый card
 
 function getCards() {
-  let cardItem = [...document.querySelectorAll(".card")];
+  let cardItem = document.querySelectorAll(".card");
   cardItem.forEach((item) => {
     item.addEventListener("click", function () {
       modal.classList.remove("hide");
@@ -137,17 +140,20 @@ function cartBtn(modal) {
   });
 }
 // создаем данные в local для корзинки cart
+
 function cartStorage(cart) {
   allCards.push(cart);
   console.log(allCards);
   localStorage.setItem("cart", JSON.stringify(allCards));
+  load = JSON.parse(localStorage.getItem("cart")) || [];
+  createCart(load);
 }
+load = JSON.parse(localStorage.getItem("cart")) || [];
 
 // получаем данные  из local
-let load = JSON.parse(localStorage.getItem("cart")) || [];
 
 function createCart(arr) {
-  let recycleContent = document.querySelector(".recycle__content");
+  recycleContent.innerHTML = "";
   let product = "";
 
   arr.forEach((item) => {
@@ -156,12 +162,34 @@ function createCart(arr) {
     <div class="product__description">
         <h3 class="product__text">${item.text}</h3>
         <p class="product__price">${item.price} Сом</p>
-        <p class="product__del">Удалить</p>
+        <p data-id=${item.id} class="product__del">Удалить</p>
     </div>
 </div>
-<hr/>`;
+`;
   });
-  recycleContent.innerHTML += product;
+  recycleContent.insertAdjacentHTML("afterbegin", product);
+  cartTotal(load);
+}
+// Итого
+function cartTotal() {
+  let all = load.reduce((acc, cure) => {
+    return acc + Number(cure.price);
+  }, 0);
+  console.log(all);
+  cartTotalPrice.textContent = "Итого: " + all + " Сом";
+}
+
+function deleteProd() {
+  let productDel = document.querySelectorAll(".product__del");
+
+  productDel.forEach((item) => {
+    item.addEventListener("click", function () {
+      let deletFind = load.find((id) => {
+        return id.id == item.dataset.id;
+      });
+      item.parentElement.parentNode.remove();
+    });
+  });
 }
 
 // меню
@@ -198,14 +226,14 @@ function searchBag(products) {
   });
 }
 
-getData("products.json")
-  .then(function (data) {
-    renderCard(data);
-    saveData(data);
-    filter(data);
-    searchBag(data);
-    createCart(load);
-  })
-  .then(() => {
-    getCards();
-  });
+getData("products.json").then(function (data) {
+  renderCard(data);
+  saveData(data);
+  filter(data);
+  searchBag(data);
+
+  createCart(load);
+  getCards();
+  deleteProd();
+});
+// .then(() => {});
