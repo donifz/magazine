@@ -6,7 +6,10 @@ let menuItems = document.querySelectorAll(".menu__link");
 let recycle = document.querySelector(".recycle");
 let recycleBlock = document.querySelector(".recycle__block");
 let recycleClose = document.querySelector(".recycle__close");
+let allData = [];
 let allCards = [];
+
+// close modal
 
 modal.addEventListener("click", function (evt) {
   let target = evt.target;
@@ -15,17 +18,19 @@ modal.addEventListener("click", function (evt) {
   }
 });
 
+// close cart
 recycleBtn.addEventListener("click", function () {
   recycle.classList.toggle("recycle__hide");
   recycle.classList.remove("hide");
 });
 
-recycleClose.addEventListener("click", function (evt) {
-  if (!evt.target.parentNode.closest(".recycle__block")) {
-    recycle.classList.add("recycle__hide");
+recycle.addEventListener("click", function (evt) {
+  if (!evt.target.closest(".recycle__block")) {
+    this.classList.toggle("recycle__hide");
   }
-  recycle.classList.toggle("recycle__hide");
 });
+
+// get json data
 
 async function getData(url) {
   let data = await fetch(url);
@@ -38,6 +43,13 @@ async function getData(url) {
 getData("products.json").then(function (data) {
   console.log(data);
 });
+
+// сохраняем все данные в local
+function saveData(products) {
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+// render all product cards
 
 function renderCard(products) {
   let card = "";
@@ -57,22 +69,28 @@ function renderCard(products) {
   catatlog.innerHTML = card;
 }
 
+// событие на каждый card
+
 function getCards() {
   let cardItem = [...document.querySelectorAll(".card")];
   cardItem.forEach((item) => {
-    item.addEventListener("click", function (evt) {
-      let target = evt.target;
+    item.addEventListener("click", function () {
       modal.classList.remove("hide");
       createModal(item);
     });
   });
 }
+
+// create modal
+
 function createModal(product) {
   let cardTitle = product.querySelector(".card__title");
   let img = product.querySelector("img");
   let text = product.querySelector(".card__title");
   let price = product.querySelector(".card__price");
   let data = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // check for  in cart product
   let dis = "";
   let gray = "";
   data.forEach((item) => {
@@ -90,7 +108,6 @@ function createModal(product) {
       </div>
       <div class="modal__description">
         <h3 class="modal__header-item" >${text.textContent}</h3>
-        
         <p>
           Описание:
           <span class="modal__description-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet,
@@ -105,11 +122,12 @@ function createModal(product) {
   cartBtn(modal);
   console.log(data);
 }
-
+// открывшую модалку передаем в новую функцию
+// находим проукцию с dataset.id из local
 function cartBtn(modal) {
   let modalBtn = modal.querySelector(".buy__btn");
   let data = JSON.parse(localStorage.getItem("products"));
-  let cart = JSON.parse(localStorage.getItem("cart"));
+
   modalBtn.addEventListener("click", function () {
     let cartId = data.find((id) => {
       return modalBtn.dataset.id == id.id;
@@ -118,14 +136,16 @@ function cartBtn(modal) {
     cartStorage(cartId);
   });
 }
-
+// создаем данные в local для корзинки cart
 function cartStorage(cart) {
   allCards.push(cart);
   console.log(allCards);
   localStorage.setItem("cart", JSON.stringify(allCards));
-  let load = JSON.parse(localStorage.getItem("cart"));
 }
+
+// получаем данные  из local
 let load = JSON.parse(localStorage.getItem("cart")) || [];
+
 function createCart(arr) {
   let recycleContent = document.querySelector(".recycle__content");
   let product = "";
@@ -172,10 +192,6 @@ function searchBag(products) {
     renderCard(name);
     getCards(name);
   });
-}
-
-function saveData(products) {
-  localStorage.setItem("products", JSON.stringify(products));
 }
 
 getData("products.json")
