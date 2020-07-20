@@ -114,11 +114,25 @@ body {
 .recycle__btn {
   margin-bottom: -2px;
   font-weight: 600;
-  width: 50px;
+  width: 60px;
   background-color: #fff;
+  position: relative;
 }
 .recycle__btn:hover {
   background-color: rgb(185, 236, 232) !important;
+}
+.cart__length {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: lightsalmon;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
 }
 
 .form {

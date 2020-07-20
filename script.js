@@ -8,7 +8,7 @@ let recycleBlock = document.querySelector(".recycle__block");
 let recycleClose = document.querySelector(".recycle__close");
 let recycleContent = document.querySelector(".recycle__content");
 let cartTotalPrice = document.querySelector(".total__price");
-
+let cartLength = document.querySelector(".cart__length");
 let allCards = [];
 let load = [];
 
@@ -43,9 +43,9 @@ async function getData(url) {
   return data.json();
 }
 
-getData("products.json").then(function (data) {
-  console.log(data);
-});
+// getData(").then(function (data) {
+//   console.log(data);
+// });
 
 // сохраняем все данные в local
 function saveData(products) {
@@ -147,9 +147,10 @@ function cartStorage(cart) {
   localStorage.setItem("cart", JSON.stringify(allCards));
   load = JSON.parse(localStorage.getItem("cart")) || [];
   createCart(load);
+  cartLength.textContent = load.length;
 }
 load = JSON.parse(localStorage.getItem("cart")) || [];
-
+cartLength.textContent = load.length;
 // получаем данные  из local
 
 function createCart(arr) {
@@ -167,8 +168,10 @@ function createCart(arr) {
 </div>
 `;
   });
+
   recycleContent.insertAdjacentHTML("afterbegin", product);
   cartTotal(load);
+  deleteProd();
 }
 // Итого
 function cartTotal() {
@@ -188,10 +191,15 @@ function deleteProd() {
         return id.id == item.dataset.id;
       });
       item.parentElement.parentNode.remove();
+      load.splice(load.indexOf(deletFind), 1);
+      localStorage.setItem("cart", JSON.stringify(load));
+      cartTotal();
+      cartLength.textContent = load.length;
     });
   });
 }
 
+console.log;
 // меню
 
 function filter(products) {
